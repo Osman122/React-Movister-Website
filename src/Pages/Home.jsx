@@ -5,13 +5,13 @@ import PageContext from '../Context/LanguageContext';
 import MovieCard from "../Components/MovieCard";
 import {Button} from 'react-bootstrap'
 import Paginator from '../Components/Paginator'
+import { useNavigate } from 'react-router-dom';
 
 export default function Home () {
     const [ moviesList, setmoviesList ] = useState([])
     const [ page, setPage ] = useState(1)
     const {lang} = useContext(LanguageContext)
-
-    //const testmovies = movies.results
+    const navigate = useNavigate()
 
     useEffect(()=>{
         axiosInstance.get(`/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=${lang}`)
@@ -27,7 +27,9 @@ export default function Home () {
         <p>Millions of movies and tv-shows to explore.</p>
         <div className="d-flex">
             <input type="search" className="form-control rounded vw-75 me-5" placeholder="Search and explore" aria-label="Search" aria-describedby="search-addon" />
-            <Button className="bg-warning" style={{width: '150px'}} variant="warning">Search</Button>{' '}
+            <Button className="bg-warning" style={{width: '150px'}} variant="warning" onClick={(event) => {
+                navigate(`/search/${event.target.previousElementSibling.value}`)
+            }}>Search</Button>{' '}
         </div>
         
     </div>
