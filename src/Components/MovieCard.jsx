@@ -2,13 +2,24 @@ import './MovieCard.css';
 import Rating from '../Components/Rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHeart} from '@fortawesome/free-solid-svg-icons'
+import {useSelector, useDispatch} from 'react-redux'
+import {addTowatchlist,removeFromwatchlist} from '../store/Slices/watchlistSlice'
 
 export default function MovieCard (props) {
     const {movie} = props
+    const watchlist = useSelector(state => state.watchlist.watchlist)
 
-    let watchlist = [] //watchlist from store
+    const dispatch = useDispatch()
+
     const addWatchlist = () => {
-        // use reducer of watchlist to update count in header, and change color of icon if exists
+        // use reducer of watchlist to update count in header
+        if (watchlist.includes(movie.id)){
+            dispatch(removeFromwatchlist(movie.id))
+        } else {
+            dispatch(addTowatchlist(movie.id))
+        }
+        
+
     }
 
     return(
@@ -21,7 +32,7 @@ export default function MovieCard (props) {
                 <div className='position-absolute' style={{top: '-30px',left: '15px'}}>
                     <Rating rate={movie.vote_average}/>
                 </div>
-                <FontAwesomeIcon onClick={addWatchlist} className={`position-absolute fs-3 ${movie.id in watchlist?"text-warning":"text-black-50"}`} style={{ right: '10px', top: '15px'}} icon={faHeart} />
+                <FontAwesomeIcon onClick={addWatchlist} className={`position-absolute fs-3 ${watchlist.includes(movie.id)?"text-warning":"text-black-50"}`} style={{ right: '10px', top: '15px'}} icon={faHeart} />
             </div>
         </div>
     </div>

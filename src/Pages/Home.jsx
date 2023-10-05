@@ -5,7 +5,6 @@ import PageContext from '../Context/LanguageContext';
 import MovieCard from "../Components/MovieCard";
 import {Button} from 'react-bootstrap'
 import Paginator from '../Components/Paginator'
-import {movies} from '../api/movies'
 
 export default function Home () {
     const [ moviesList, setmoviesList ] = useState([])
