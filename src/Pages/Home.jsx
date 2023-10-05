@@ -12,11 +12,12 @@ export default function Home () {
 
     const testmovies = movies.results
 
-    console.log(testmovies)
+   /* console.log(testmovies)
     useEffect(()=>{
         axiosInstance.get(`/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=${lang}`).then((res)=>{
             setmoviesList(res.data.results)
         })},[])
+        */
 
     return (<div className="row">
        {testmovies.map((movie) => {
