@@ -1,11 +1,18 @@
+import { useNavigate } from 'react-router-dom';
 import './MovieCard.css';
 import Stars from './Starbar';
 
 
+
 export default function WatchListCard (props) {
+  const navigate = useNavigate()
+  const showMovieDetails = (id) => {
+    navigate(`/Movie/${id}`)
+  }
     const {movie} = props
 
     return(  <div
+      onClick={() => showMovieDetails(movie.id)}
         className="card mx-5 my-2  p-4 col-lg-5  "
         style={{maxWidth: "800px", maxHeight:"330px" ,justifyContent:"space-between" }}>
         <div className="row g-0 ">
@@ -14,13 +21,13 @@ export default function WatchListCard (props) {
             style={{maxHeight:"260px"}}/>
            
           </div>
-          <div class="col-lg-5 ms-5 ">
+          <div class="col-lg-6 ms-5 " >
             <div class="card-body">
               <h3 class="card-title  fw-bolder">{movie.title}</h3>
               <h5 className='text-muted'>{movie.release_date}</h5>
               <Stars rating={movie.vote_average/2}/>
               </div>
-              <p class="card-text " style={{textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden"}}>
+              <p class="card-text p-1" style={{textOverflow: "ellipsis", whiteSpace: "nowrap", overflow: "hidden"}}>
               {movie.overview}
               </p>
               </div>
