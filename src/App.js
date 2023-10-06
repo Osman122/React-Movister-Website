@@ -4,7 +4,6 @@ import Router from "./Router/Router";
 import LanguageContext from "./Context/LanguageContext";
 import { useState } from "react";
 
-
 function App() {
   const [lang, setLang] = useState("En");
 
@@ -15,7 +14,7 @@ function App() {
           <div className="container my-5">
             <Router />
           </div>
-        </LanguageContext.Provider>
+          </LanguageContext.Provider>
     </BrowserRouter>
   );
 }

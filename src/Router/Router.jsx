@@ -13,7 +13,7 @@ export default function Router() {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-        <Route path="/Movie/:id" element={<MoviePage />} />
+        <Route path="/movie/:id" element={<MoviePage />} />
         <Route path="/search/:keyword" element={<SearchPage />} />
         <Route path="/watchlist" element={<WatchList />} />
         <Route path="*" element={<NotFound />} />

@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { axiosInstance } from "../api/config";
 import Stars from "../Components/Starbar";
 
 export default function MoviePage () {
-    
-
-        const dispatch = useDispatch()
-        const params = useParams()
-        const [ movie, setProductData ] = useState(null)
+        const {id} = useParams()
+        const [ movie, setMovie ] = useState(null)
     
         useEffect(() => {
-            axiosInstance.get(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_API_KEY} `)
+            axiosInstance.get(`${process.env.REACT_APP_BASE_URL}/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}`)
             .then((res) => {
-              setProductData(res.data)
+              setMovie(res.data)
             })
             .catch((err) => console.log(err));
         },[]);
