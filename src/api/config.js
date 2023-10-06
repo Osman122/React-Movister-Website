@@ -5,10 +5,10 @@ export const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use((config) => {
-    config.headers['Authorization']="Bearer " + process.env.REACT_APP_API_KEY
+    config.headers['Authorization']="Bearer " + process.env.REACT_APP_API_READ_ACCESS_TOKEN
     config.headers['accept']= 'application/json'
-    config.url+= config.url.includes("?")?'&include_adult=false':'?include_adult=false'
     return config
+
 }, (error) => {
     console.log(error)
 })

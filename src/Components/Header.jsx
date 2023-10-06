@@ -11,6 +11,7 @@ function Header() {
   const {lang,setLang} = useContext(LanguageContext)
   const watchlist = useSelector(state => state.watchlist.watchlist)
 
+  /*
   useEffect(()=>{
     axiosInstance.get(`3/account/${process.env.REACT_APP_TMDB_USER_ID}/watchlist/movies`).then((res)=>{
       console.log('header',res)
@@ -18,6 +19,8 @@ function Header() {
       console.log(error)
     })
   },[])
+  */
+ 
   const changeLang = () => {
     setLang(lang==="En"?"Ar":"En")
   }

@@ -28,10 +28,6 @@ export default function MovieCard (props) {
         <div className="card mb-2 border-0 vh-50">
             <img  onClick={()=>navigate(`/movie/${movie.id}`)} 
             src={`${process.env.REACT_APP_IMAGE_URL}${movie.poster_path}`} 
-            onError={({ currentTarget }) => {
-                currentTarget.onerror = "";
-                currentTarget.src=process.env.REACT_APP_IMAGE_URL+movie.backdrop_path;
-              }}
             className="card-img-top img-fluid rounded" alt="product thumbnail" />
             <div className="card-body p-0 position-relative rounded mt-1">
                 <h5 onClick={()=>navigate(`/movie/${movie.id}`)} className="d-inline-block card-title mt-3 w-75" style={{textWrap: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden'}}>{movie.title}</h5>

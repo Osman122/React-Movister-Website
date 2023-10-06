@@ -10,13 +10,15 @@ import { useNavigate } from 'react-router-dom';
 export default function Home () {
     const [ moviesList, setmoviesList ] = useState([])
     const [ page, setPage ] = useState(1)
+    const [ maxpages, setmaxpages ] = useState(1)
     const {lang} = useContext(LanguageContext)
     const navigate = useNavigate()
 
     useEffect(()=>{
-        axiosInstance.get(`/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=${lang}`)
+        axiosInstance.get(`/3/movie/popular?page=${page}&language=${lang}&include_adult=false`)
         .then((res)=>{
             setmoviesList(res.data.results)
+            setmaxpages(res.data.total_pages)
         }).catch((error) => {
             console.log(error)
     })},[lang,page])
@@ -39,6 +41,6 @@ export default function Home () {
        })}
     </div></>):<></>}
     <PageContext.Provider  value={{page,setPage}}>
-        <Paginator />
+        <Paginator maxpages={maxpages}/>
     </PageContext.Provider>
 </>}

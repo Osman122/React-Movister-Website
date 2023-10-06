@@ -8,6 +8,7 @@ export default function MoviePage () {
         const [ movie, setMovie ] = useState(null)
     
         useEffect(() => {
+            window.scrollTo(0,0) 
             axiosInstance.get(`${process.env.REACT_APP_BASE_URL}/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}`)
             .then((res) => {
               setMovie(res.data)
