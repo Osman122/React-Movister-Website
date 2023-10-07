@@ -11,7 +11,7 @@ import MovieCard from "../Components/MovieCard";
 export default function MoviePage () {
         const {id} = useParams()
         const [ movie, setMovie ] = useState(null)
-        const [ recomedmovie, setRecomedMovie ] = useState(null)
+        const [ recomendmovie, setRecomedMovie ] = useState(null)
         const dispatch =useDispatch()
         const watchlist = useSelector(state => state.watchlist.watchlist)
 
@@ -108,13 +108,13 @@ export default function MoviePage () {
             
                  
             <div style={{whiteSpace:"nowrap", overflow:"auto"}}>
-            {recomedmovie && recomedmovie.length!==0?
+            {recomendmovie && recomendmovie.results.length!==0?
             (<div className="container-fluid " >
                <div className="d-flex flex-row flex-nowrap gx-5 " style={{gap:"15px"}}>
             {
             
-           recomedmovie.results.map((movie)=>
-           {return   <MovieCard  movie ={movie}  /> }
+           recomendmovie.results.map((movie)=>
+           {return   <MovieCard  movie ={movie} key={movie.id} /> }
            
                     )
               
