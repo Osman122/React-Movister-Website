@@ -108,13 +108,13 @@ export default function MoviePage () {
             
                  
             <div style={{whiteSpace:"nowrap", overflow:"auto"}}>
-            {recomedmovie?
+            {recomedmovie && recomedmovie.length!==0?
             (<div className="container-fluid " >
-               <div className="d-flex flex-row flex-nowrap " style={{justifyContent:"space-around"}}>
+               <div className="d-flex flex-row flex-nowrap gx-5 " style={{gap:"15px"}}>
             {
             
            recomedmovie.results.map((movie)=>
-           {return   <MovieCard className="m-5" movie ={movie}  /> }
+           {return   <MovieCard  movie ={movie}  /> }
            
                     )
               
@@ -122,7 +122,7 @@ export default function MoviePage () {
               </div>
               
               </div>
-              ):<>osman</>}
+              ):<div style={{textAlign:"center ",paddingTop:"15px"}}> THERE IS NO RECOMINDATION AT THE CURRENR MOMENT <div className="fw-bold">will be added soon</div></div>}
               
 
               </div>
