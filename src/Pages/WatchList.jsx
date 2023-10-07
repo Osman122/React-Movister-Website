@@ -1,22 +1,24 @@
 import { axiosInstance } from "../api/config"
-import { useEffect, useState,useContext} from "react"
+import { useState, useContext, useEffect} from "react"
 import LanguageContext from '../Context/LanguageContext';
-import MovieCard from "../Components/MovieCard";
-
-import {movies} from '../api/movies'
 import WatchListCard from "../Components/WatchListCard";
+
 export default function WatchList() {
-/*
     const [ moviesList, setmoviesList ] = useState([])
     const [ page, setPage ] = useState(1)
     const {lang} = useContext(LanguageContext)
-*/
-    const testmovies = movies.results
 
-   
+    async function getWatchlist () {
+        const res = await axiosInstance.get(`/3/account/${window.sessionStorage.profile_id}/watchlist/movies?language=${lang}&page=${page}`)
+        setmoviesList(res.data.results)
+    }
+
+    useEffect(()=>{
+        getWatchlist()
+    },[lang])
 
     return (<div className="row">
-       {testmovies.map((movie) => {
+       {moviesList.map((movie) => {
             return <WatchListCard movie={movie} />
        })}
 </div>)
