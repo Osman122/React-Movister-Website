@@ -19,5 +19,5 @@ const stars = []
         }
     }
 
-    return <div className="rating ">{stars}</div>
+    return <div className="rating  d-inline">{stars}</div>
 }
