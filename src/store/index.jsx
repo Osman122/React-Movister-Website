@@ -4,5 +4,5 @@ import watchlistSlice from './Slices/watchlistSlice'
 export default configureStore({
     reducer:{
         watchlist: watchlistSlice
-    },
+    }
 })

@@ -37,7 +37,7 @@ export default function Home () {
     </div>
     <div className="row g-3">
        {moviesList.map((movie) => {
-            return <MovieCard movie={movie} />
+            return <MovieCard movie={movie} key={movie.id}/>
        })}
     </div></>):<></>}
     <PageContext.Provider  value={{page,setPage}}>
