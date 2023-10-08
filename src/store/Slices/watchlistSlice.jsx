@@ -2,7 +2,8 @@ import {createSlice} from '@reduxjs/toolkit'
 
 
 const Initial_State = {
-    watchlist: []
+    watchlist: [],
+    synced: false
 }
 
 const watchlistSlice = createSlice({
@@ -11,6 +12,7 @@ const watchlistSlice = createSlice({
     reducers:{
         setWatchlist: (state,action) => {
             state.watchlist = action.payload
+            state.synced = true
         },
 
         addTowatchlist: (state, action) => {

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { axiosInstance } from "../api/config";
 import Stars from "../Components/Starbar";
+import LanguageContext from '../Context/LanguageContext';
 
 import MovieCard from "../Components/MovieCard";
 import AddWatchLater from '../Components/AddWatchLater'
@@ -10,19 +11,20 @@ export default function MoviePage() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [recommendmovie, setRecommendMovie] = useState(null);
+  const {lang} = useContext(LanguageContext)
 
   const getData = async () => {
-    const res = await axiosInstance.get(`${process.env.REACT_APP_BASE_URL}/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}`).catch((err) => console.log(err));
+    const res = await axiosInstance.get(`${process.env.REACT_APP_BASE_URL}/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}&language=${lang}`).catch((err) => console.log(err));
     setRecommendMovie(res.data);
     
-    const res2 = await axiosInstance.get(`${process.env.REACT_APP_BASE_URL}/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}`).catch((err) => console.log(err));
+    const res2 = await axiosInstance.get(`${process.env.REACT_APP_BASE_URL}/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=${lang}`).catch((err) => console.log(err));
     setMovie(res2.data);
     
   }
 
   useEffect(() => {
     getData()
-  }, []);
+  }, [lang]);
 
   return movie ? (
     <div className="container" style={{}}>

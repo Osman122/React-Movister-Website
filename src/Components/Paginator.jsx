@@ -5,10 +5,8 @@ import {Alert} from 'react-bootstrap'
 export default function Paginator(props) {
   const {page,setPage} = useContext(PageContext)
   const {maxpages} = props
-  console.log(page,maxpages)
   
   const changePage = (p) => {
-    console.log(p)
     if (p <= maxpages) {
       setPage(parseInt(p))
     } else {

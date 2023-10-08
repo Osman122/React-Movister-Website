@@ -70,7 +70,7 @@ export default function App() {
             Your TMDB profile id is : {window.sessionStorage.profile_id}
           </Alert>
           <Alert id="fail-auth" variant="danger" className="m-2" hidden={true}>
-            Successfully Failed with TMDB!
+            Authentication Failed with TMDB!
             Trying again ...
           </Alert>
 

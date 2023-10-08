@@ -18,9 +18,10 @@ function Header() {
 
   const dispatch = useDispatch()
 
-  async function getWatchlist () {
-    const res = await axiosInstance.get(`/3/account/${window.sessionStorage.profile_id}/watchlist/movies`)
-    dispatch(setWatchlist(res.data.results.map(movie=>movie.id)))
+  function getWatchlist () {
+    axiosInstance.get(`/3/account/${window.sessionStorage.profile_id}/watchlist/movies`).then(res=>{
+      dispatch(setWatchlist(res.data.results.map(movie=>movie.id)))
+    }).catch(err=>{console.log(err)})
   }
 
   useEffect(()=>{

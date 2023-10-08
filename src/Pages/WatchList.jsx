@@ -17,7 +17,7 @@ export default function WatchList() {
         getWatchlist()
     },[lang])
 
-    return (<div className="row">
+    return (<div className="row justify-content-around">
        {moviesList.map((movie) => {
             return <WatchListCard movie={movie} />
        })}

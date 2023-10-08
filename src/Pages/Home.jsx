@@ -23,7 +23,7 @@ export default function Home () {
             console.log(error)
     })},[lang,page])
 
-    return <>{moviesList?(<>
+    return <>{moviesList.length?(<>
     <div className="bg-light rounded p-5 mb-5 lh-lg">
         <h1>Welcome to our movie app</h1>
         <p>Millions of movies and tv-shows to explore.</p>

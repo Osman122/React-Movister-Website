@@ -13,7 +13,7 @@ export default function WatchListCard (props) {
     const {movie} = props
 
     return(  <div
-        className="card mx-5 my-2  p-4 col-lg-5  "
+        className="card my-2  p-3 col-lg-5 col-md-12    "
         style={{maxWidth: "800px", maxHeight:"330px" ,justifyContent:"space-between" }}>
         <div className="row g-0 ">
           <div style={{alignItems: "center", maxHeight:"250px"}} className="col-md-4">
@@ -21,7 +21,7 @@ export default function WatchListCard (props) {
             style={{maxHeight:"260px"}}/>
            
           </div>
-          <div className="col-lg-6 ms-5 " >
+          <div className="col-12 col-md-6 ms-5 " >
             <div className="card-body">
               <h3 className="card-title  fw-bolder" onClick={() => showMovieDetails(movie.id)}>{movie.title}</h3>
               <h5 className='text-muted'>{movie.release_date}</h5>

@@ -3,27 +3,39 @@ import {faHeart} from '@fortawesome/free-solid-svg-icons'
 import { axiosInstance } from '../api/config';
 import {useSelector, useDispatch} from 'react-redux'
 import {addTowatchlist,removeFromwatchlist} from '../store/Slices/watchlistSlice'
+import { useEffect, useState } from 'react';
 
 export default function AddWatchLater (props) {
     const {movie}=props
-    const watchlist = useSelector(state => state.watchlist.watchlist)
+    const {watchlist, synced} = useSelector(state => state.watchlist)
     const dispatch = useDispatch()
-    
+    const [selected, setSelected]=useState(false)
 
-    const addWatchlist = async () => {
+    useEffect(()=>{
+        setSelected(watchlist.includes(movie.id))
+    },[synced])
+    
+    const addWatchlist = () => {
+        
         if (watchlist.includes(movie.id)){
-            const res = await axiosInstance.post(`/3/account/${window.sessionStorage.profile_id}/watchlist?session_id=${window.sessionStorage.session_id}`,
+
+            axiosInstance.post(`/3/account/${window.sessionStorage.profile_id}/watchlist?session_id=${window.sessionStorage.session_id}`,
                 {"media_type": "movie", "media_id":movie.id,"watchlist": false}
-            )
-            if (res.data.status_code === 13) dispatch(removeFromwatchlist(movie.id))
+            ).then(res => {
+                dispatch(removeFromwatchlist(movie.id))
+            }).catch(err=> {console.log(err)})
+
 
         } else {
-            const res = await axiosInstance.post(`/3/account/${window.sessionStorage.profile_id}/watchlist?session_id=${window.sessionStorage.session_id}`,
+            axiosInstance.post(`/3/account/${window.sessionStorage.profile_id}/watchlist?session_id=${window.sessionStorage.session_id}`,
                 {"media_type": "movie", "media_id":movie.id,"watchlist": true}
-            )
-            if (res.data.status_code === 1) dispatch(addTowatchlist(movie.id))
+            ).then(res=>{
+                dispatch(addTowatchlist(movie.id))
+            }).catch(err=> {console.log(err)})
         }
+        setSelected(!selected)
     }
 
-    return <FontAwesomeIcon onClick={() => addWatchlist(movie)} className={`position-absolute fs-3 ${watchlist.includes(movie.id)?"text-warning":"text-black-50"}`} style={{ right: '10px', top: '15px'}} icon={faHeart} />
+
+    return <FontAwesomeIcon onClick={addWatchlist} className={`position-absolute fs-3 ${selected?"text-warning":"text-black-50"}`} style={{ right: '10px', top: '15px'}} icon={faHeart} />
 }
