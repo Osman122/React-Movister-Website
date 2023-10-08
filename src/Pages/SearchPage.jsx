@@ -8,7 +8,7 @@ import MovieCard from "../Components/MovieCard";
 import {Button,Alert} from 'react-bootstrap'
 
 export default function SearchPage () {
-    let {key} = useParams()
+    let {keyword:key} = useParams()
     const [ keyword, setkeyword ] = useState(key)
     const [ moviesList, setmoviesList ] = useState([])
     const [ page, setPage ] = useState(1)

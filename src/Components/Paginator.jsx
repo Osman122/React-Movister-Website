@@ -5,6 +5,8 @@ import {Alert} from 'react-bootstrap'
 export default function Paginator(props) {
   const {page,setPage} = useContext(PageContext)
   const {maxpages} = props
+  console.log(page,maxpages)
+  
   const changePage = (p) => {
     console.log(p)
     if (p <= maxpages) {
@@ -28,8 +30,8 @@ export default function Paginator(props) {
         <li className='page-item'><p className={`page-link ${page>=3?'bg-warning text-light':"text-dark"}`} onClick={(e)=>changePage(e.target.innerText)}>{page>3?page:3}</p></li>
         <li className='page-item'><p className={`page-link text-dark`} onClick={(e)=>changePage(e.target.innerText)}>{page>3?page+1:4}</p></li>
         <li className='page-item'><p className={`page-link text-dark`} onClick={(e)=>changePage(e.target.innerText)}>{page>3?page+2:5}</p></li>
-        <li className={`page-item ${page===5?'disabled':""}`}>
-          <p className="page-link text-dark" onClick={()=>changePage(page+1)} tabIndex="-1" aria-disabled={page===5?"true":"false"}>Next</p>
+        <li className={`page-item ${page===maxpages?'disabled':""}`}>
+          <p className="page-link text-dark" onClick={()=>changePage(page+1)} tabIndex="-1" aria-disabled={page===maxpages?"true":"false"}>Next</p>
         </li>
       </ul>
     </nav>
