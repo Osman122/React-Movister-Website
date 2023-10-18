@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/6.f58a7458.chunk.css","mappings":"AACA,cACI,WAAY,CACZ,gBACJ","sources":["Components/MovieCard.css"],"sourcesContent":["\n.card-img-top {\n    height: 40vh;\n    object-fit: cover;\n}\n\n\n\n\n\n"],"names":[],"sourceRoot":""}

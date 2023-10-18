@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/movister/static/css/main.fce73653.css",
+    "main.js": "/movister/static/js/main.9a34d2fe.js",
+    "static/css/467.f58a7458.chunk.css": "/movister/static/css/467.f58a7458.chunk.css",
+    "static/js/467.26e0dc51.chunk.js": "/movister/static/js/467.26e0dc51.chunk.js",
+    "static/css/6.f58a7458.chunk.css": "/movister/static/css/6.f58a7458.chunk.css",
+    "static/js/6.5a8224ae.chunk.js": "/movister/static/js/6.5a8224ae.chunk.js",
+    "static/css/742.f58a7458.chunk.css": "/movister/static/css/742.f58a7458.chunk.css",
+    "static/js/742.d9421aaa.chunk.js": "/movister/static/js/742.d9421aaa.chunk.js",
+    "static/js/29.e4e39646.chunk.js": "/movister/static/js/29.e4e39646.chunk.js",
+    "static/css/498.f58a7458.chunk.css": "/movister/static/css/498.f58a7458.chunk.css",
+    "static/js/498.235a98d7.chunk.js": "/movister/static/js/498.235a98d7.chunk.js",
+    "static/js/194.99e95d26.chunk.js": "/movister/static/js/194.99e95d26.chunk.js",
+    "static/js/787.e404cd82.chunk.js": "/movister/static/js/787.e404cd82.chunk.js",
+    "static/js/481.963888c6.chunk.js": "/movister/static/js/481.963888c6.chunk.js",
+    "static/js/850.8e26d261.chunk.js": "/movister/static/js/850.8e26d261.chunk.js",
+    "index.html": "/movister/index.html",
+    "main.fce73653.css.map": "/movister/static/css/main.fce73653.css.map",
+    "main.9a34d2fe.js.map": "/movister/static/js/main.9a34d2fe.js.map",
+    "467.f58a7458.chunk.css.map": "/movister/static/css/467.f58a7458.chunk.css.map",
+    "467.26e0dc51.chunk.js.map": "/movister/static/js/467.26e0dc51.chunk.js.map",
+    "6.f58a7458.chunk.css.map": "/movister/static/css/6.f58a7458.chunk.css.map",
+    "6.5a8224ae.chunk.js.map": "/movister/static/js/6.5a8224ae.chunk.js.map",
+    "742.f58a7458.chunk.css.map": "/movister/static/css/742.f58a7458.chunk.css.map",
+    "742.d9421aaa.chunk.js.map": "/movister/static/js/742.d9421aaa.chunk.js.map",
+    "29.e4e39646.chunk.js.map": "/movister/static/js/29.e4e39646.chunk.js.map",
+    "498.f58a7458.chunk.css.map": "/movister/static/css/498.f58a7458.chunk.css.map",
+    "498.235a98d7.chunk.js.map": "/movister/static/js/498.235a98d7.chunk.js.map",
+    "194.99e95d26.chunk.js.map": "/movister/static/js/194.99e95d26.chunk.js.map",
+    "787.e404cd82.chunk.js.map": "/movister/static/js/787.e404cd82.chunk.js.map",
+    "481.963888c6.chunk.js.map": "/movister/static/js/481.963888c6.chunk.js.map",
+    "850.8e26d261.chunk.js.map": "/movister/static/js/850.8e26d261.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fce73653.css",
+    "static/js/main.9a34d2fe.js"
+  ]
+}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmovister=self.webpackChunkmovister||[]).push([[194],{5194:function(e,t,s){s.r(t),s.d(t,{default:function(){return i}});var u=s(2791),c=s(18),n=s(184);function i(){return(0,u.useEffect)((function(){setTimeout("window.close()",3e3)})),(0,n.jsx)(c.Z,{variant:"success",children:"Successfully Authenticated! This page will close automatically!"})}}}]);
+//# sourceMappingURL=194.99e95d26.chunk.js.map
